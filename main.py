@@ -1,5 +1,9 @@
-# from classe_tarefa import Tarefa
+
 afazeres = []
+with open ("banco_de_dados.txt", "r") as arquivo:
+  for tarefa in arquivo:
+    afazeres.append(tarefa.strip())
+
 while True:
   #Menu principal
     print("""     _____  
@@ -52,7 +56,12 @@ while True:
       afazeres.remove(remover)
 
     elif tarefa == 5:
-      print("Você escolheu sair")
+     
+      with open("banco_de_dados.txt", "w") as arquivo:
+         for tarefa in afazeres:
+          arquivo.write(tarefa + "\n")
+          print("Você escolheu sair") 
+          print("Lista de tarefas concluida com sucesso")
       break
     
       
